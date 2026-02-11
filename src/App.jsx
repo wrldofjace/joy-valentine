@@ -91,7 +91,7 @@ export default function App() {
 
                 {/* 💌 WHATSAPP NOTIFICATION BUTTON */}
                 <button 
-                  onClick={() => window.location.href = `https://wa.me/${MY_PHONE_NUMBER}?text=I%20saw%20the%20website!%20YES!%20❤️`}
+                  onClick={() => window.location.href = `https://wa.me/${254790555800}?text=I%20saw%20the%20website!%20YES!%20❤️`}
                   className="mt-6 bg-green-500 hover:bg-green-400 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform active:scale-95 flex items-center gap-2"
                 >
                   Tell Jayson YES! 💌
