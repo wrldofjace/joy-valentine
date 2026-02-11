@@ -90,8 +90,8 @@ export default function App() {
                 </div>
 
                 {/* 💌 WHATSAPP NOTIFICATION BUTTON */}
-               <button 
-  onClick={() => window.location.href = `https://wa.me/${254790555800}?text=I%20saw%20the%20message%20yes%20and%20we%20will%20do%20it%20raw%20and%20ill%20have%20your%20children%20and%20be%20Mrs%20ngambwa`}
+              <button 
+  onClick={() => window.location.href = `https://wa.me/${254790555800}`}
   className="mt-6 bg-green-500 hover:bg-green-400 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform active:scale-95 flex items-center gap-2"
 >
   Tell Jayson YES! 💌
