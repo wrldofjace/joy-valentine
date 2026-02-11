@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [noCount, setNoCount] = useState(0);
@@ -9,7 +10,9 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioRef = useRef(null);
 
-  // Timer Logic
+  // REPLACE THIS with your actual phone number (include country code, no + or spaces)
+  const MY_PHONE_NUMBER = "2547XXXXXXXX"; 
+
   useEffect(() => {
     const target = new Date("February 14, 2026 00:00:00").getTime();
     const interval = setInterval(() => {
@@ -45,16 +48,15 @@ export default function App() {
 
   return (
     <div className="relative flex items-center justify-end h-screen w-full overflow-hidden font-sans pr-4 md:pr-20">
+      <Analytics />
       <audio ref={audioRef} src="/music.mp3" loop />
       
-      {/* Background Image */}
       <div 
         className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-[left_top]"
         style={{ backgroundImage: "url('/joy.png')" }}
       />
       <div className="absolute inset-0 z-1 bg-gradient-to-r from-transparent via-black/20 to-black/60" />
 
-      {/* 🚀 BOLDER JACE FOREVER HEADER */}
       {!yesPressed && (
         <motion.div 
           initial={{ y: -100 }} animate={{ y: 0 }}
@@ -86,6 +88,14 @@ export default function App() {
                 <div className="mt-8 pt-6 border-t border-white/20 w-full font-black text-rose-500 uppercase tracking-[0.2em] text-xl animate-pulse">
                     I Love You Joy
                 </div>
+
+                {/* 💌 WHATSAPP NOTIFICATION BUTTON */}
+                <button 
+                  onClick={() => window.location.href = `https://wa.me/${MY_PHONE_NUMBER}?text=I%20saw%20the%20website!%20YES!%20❤️`}
+                  className="mt-6 bg-green-500 hover:bg-green-400 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform active:scale-95 flex items-center gap-2"
+                >
+                  Tell Jayson YES! 💌
+                </button>
             </div>
           </motion.div>
         ) : (
@@ -102,7 +112,6 @@ export default function App() {
               Will you be my <br/> <span className="font-black text-rose-500 uppercase tracking-tighter text-5xl drop-shadow-lg">Valentine?</span>
             </h1>
 
-            {/* Timer */}
             <div className="flex gap-4 mb-8 text-white">
               {['days', 'hours', 'minutes', 'seconds'].map((unit) => (
                 <div key={unit} className="flex flex-col items-center min-w-[50px] bg-white/5 rounded-lg p-2 border border-white/5">
